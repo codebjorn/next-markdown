@@ -15,7 +15,7 @@ const Article: NextPage<ArticleProps> = ({
   article: { date, title, html },
 }) => {
   return (
-    <Layout>
+    <Layout head={{ title }}>
       <Box
         color="gray.500"
         fontWeight="semibold"
@@ -28,7 +28,12 @@ const Article: NextPage<ArticleProps> = ({
       <Heading as="h1" size="3xl" my={10}>
         {title}
       </Heading>
-      <Box sx={{ "pre code": { whiteSpace: "initial" }, "*": { margin: "10px 0" } }}>
+      <Box
+        sx={{
+          "pre code": { whiteSpace: "initial" },
+          "*": { margin: "10px 0" },
+        }}
+      >
         <div
           className="article-content"
           dangerouslySetInnerHTML={{ __html: html }}
